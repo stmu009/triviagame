@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Trivia Game</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <h1 class="display-3">Trivia Game!</h1>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <button id="start-button" type="button" class="btn btn-primary justify-content-md-center">Start</button>
+                        </div>
+                    </div>
+                    <div class="row" id="timer-row">
+                        <div class="col text-center">Time Remaining: <span id="timer"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="question-card" class="card" style="background-color:cadetblue; border-color:darkblue;">
+            <!-- <img class="card-img-top" src="holder.js/100x180/" alt=""> -->
+            <div class="card-body">
+                <h4 id="question-title" class="card-title">Question</h4>
+                <button type="button" name="" id="choice0" class="card-text btn btn-secondary btn-lg btn-block">Choice 1</button>
+                <button type="button" name="" id="choice1" class="card-text btn btn-secondary btn-lg btn-block">Choice 2</button>
+                <button type="button" name="" id="choice2" class="card-text btn btn-secondary btn-lg btn-block">Choice 3</button>
+                <button type="button" name="" id="choice3" class="card-text btn btn-secondary btn-lg btn-block">Choice 4</button>
+            </div>
+        </div>
+        <div id="result-card" class="card text-center" style="background-color:cadetblue; border-color:darkblue;">
+            <!-- <img class="card-img-top" src="holder.js/100x180/" alt=""> -->
+            <div class="card-body">
+                <h4 id="result-title" class="card-title">Nope!</h4>
+                <p class="card-text">The Correct Answer was: <span id="correct-answer"></span></p>
+                <!-- <img src="holder.js/100x180/" class="img-fluid rounded-circle" alt=""> -->
+            </div>
+        </div>
+        <div id="score-card" class="card" style="background-color:cadetblue; border-color:darkblue;">
+            <!-- <img class="card-img-top" src="holder.js/100x180/" alt=""> -->
+            <div class="card-body text-center">
+                <h4 class="card-title">All done, here is how you did!</h4>
+                <p class="card-text">Correct Answers: <span id="correct-total" ></span> </p>
+                <p class="card-text">Incorrect Answers: <span id="incorrect-total"></span></p>
+                <p class="card-text">Unanswered: <span id="unanswered-total" ></span></p>
+                <button type="button" name="restart-button-name" id="restart-button-id" class="btn btn-primary justify-content-md-center">Start Again?</button>
+            </div>
+        </div>
+        <!-- <button type="button" class="btn btn-secondary" data-toggle="popover" title="Popup title" data-content="Popup content" data-trigger="focus">
+            Something
+        </button> -->
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>
+
