@@ -16,16 +16,13 @@ var game = {
   },
   imageURL: "",
   getRandomImage: function() {
-    console.log("getting random image.....");
     imageApiUrl =
       "https://api.giphy.com/v1/gifs/random?api_key=9QlbLuAZPRqqt9iFUGsCDEohAG6hNb6B&tag=video%20game&rating=PG";
     $.ajax({
       type: "GET",
       url: imageApiUrl,
       success: function(response) {
-        console.log(JSON.stringify(response.data));
         game.imageURL = response.data.fixed_height_small_url;
-        console.log(JSON.stringify(response.data.fixed_height_small_url));
         $("#result-random-image").attr("src", game.imageURL);
       }
     });
@@ -155,7 +152,7 @@ var game = {
   },
   correctAnswerResult: function() {
     $("#result-title").text("Correct!");
-    $(".card-text").html('<span id="correct-answer"></span>');
+    $("#result-text").html('<span id="correct-answer"></span>');
     game.getRandomImage();
     game.currentQuestion++;
     game.correctAnswers++;
@@ -169,10 +166,11 @@ var game = {
   },
   wrongAnswerResult: function() {
     $("#result-title").text("Incorrect");
-    $(".card-text").html(
-      '<p class="card-text">The Correct Answer was: <span id="correct-answer">' +
+    console.log(game.questions[game.currentQuestion].correct_answer);
+    $("#result-text").html(
+      'The Correct Answer was: <span id="correct-answer">' +
         game.questions[game.currentQuestion].correct_answer +
-        "</span></p>"
+        "</span>"
     );
     game.getRandomImage();
     game.currentQuestion++;
@@ -187,10 +185,10 @@ var game = {
   },
   outOfTimeResult: function() {
     $("#result-title").text("You are out of time!");
-    $(".card-text").html(
-      '<p class="card-text">The Correct Answer was: <span id="correct-answer">' +
+    $("#result-text").html(
+      'The Correct Answer was: <span id="correct-answer">' +
         game.questions[game.currentQuestion].correct_answer +
-        "</span></p>"
+        "</span>"
     );
     game.getRandomImage();
     game.currentQuestion++;
