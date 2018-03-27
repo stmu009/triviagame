@@ -14,6 +14,22 @@ var game = {
       }
     });
   },
+  imageURL: "",
+  getRandomImage: function() {
+    console.log('getting random image.....');
+    imageApiUrl =
+      "https://api.giphy.com/v1/gifs/random?api_key=9QlbLuAZPRqqt9iFUGsCDEohAG6hNb6B&tag=video%20game&rating=PG";
+    $.ajax({
+      type: "GET",
+      url: imageApiUrl,
+      success: function(response) {
+        console.log(JSON.stringify(response.data));
+        game.imageURL = response.data.fixed_height_small_url;
+        console.log(JSON.stringify(response.data.fixed_height_small_url));
+        $("#result-random-image").attr("src", game.imageURL);
+      }
+    });
+  },
   currentQuestion: 0,
   correctAnswers: 0,
   wrongAnswers: 0,
@@ -56,7 +72,6 @@ var game = {
   },
   startRestartTimer: function() {
     counter = 0;
-    console.log(game.restartTimer);
     game.updateTimer(game.restartTimer);
     game.intervalID = setInterval(function() {
       counter++;
@@ -112,7 +127,6 @@ var game = {
     $.each(choices, (index, value) => {
       $("#choice" + index).html(value);
     });
-    console.log(choices);
     game.choiceClickHandler();
   },
 
@@ -122,21 +136,13 @@ var game = {
       .on("click", function(e) {
         game.stopTimer();
         choice = $(this).text();
-        console.log("choice: ", choice);
-        console.log(
-          "correct_answer",
-          game.questions[game.currentQuestion].correct_answer
-        );
         if (choice == game.questions[game.currentQuestion].correct_answer) {
-          console.log("if");
           game.correctAnswerResult();
         } else if (
           choice != game.questions[game.currentQuestion].correct_answer
         ) {
-          console.log("else if");
           game.wrongAnswerResult();
         } else {
-          console.log("else");
         }
       });
   },
@@ -149,12 +155,9 @@ var game = {
   },
   correctAnswerResult: function() {
     $("#result-title").text("Correct!");
-    $("#correct-answer").html("");
+    $(".card-text").html('<span id="correct-answer"></span>');
+    game.getRandomImage();
     game.currentQuestion++;
-    console.log(
-      "Correct answer increments current question: ",
-      game.currentQuestion
-    );
     game.correctAnswers++;
     game.hideQuestion();
     game.showResult();
@@ -169,11 +172,8 @@ var game = {
     $("#correct-answer").html(
       game.questions[game.currentQuestion].correct_answer
     );
+    game.getRandomImage();
     game.currentQuestion++;
-    console.log(
-      "Wrong answer increments current question",
-      game.currentQuestion
-    );
     game.wrongAnswers++;
     game.hideQuestion();
     game.showResult();
@@ -188,11 +188,8 @@ var game = {
     $("#correct-answer").html(
       game.questions[game.currentQuestion].correct_answer
     );
+    game.getRandomImage();
     game.currentQuestion++;
-    console.log(
-      "Unanswered answer increments current question",
-      game.currentQuestion
-    );
     game.unansweredQuestions++;
     game.hideQuestion();
     game.showResult();
