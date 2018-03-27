@@ -32,7 +32,7 @@ var game = {
   wrongAnswers: 0,
   unansweredQuestions: 0,
   startButtonDelay: 2000,
-  timer: 10,
+  timer: 20,
   intervalID: "",
   resultTimer: 3,
   restartTimer: 5,
