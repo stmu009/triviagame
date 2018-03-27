@@ -34,7 +34,9 @@
                         </div>
                     </div>
                     <div class="row" id="timer-row">
-                        <div class="col text-center">Time Remaining: <span id="timer"></span></div>
+                        <div class="col text-center">Time Remaining:
+                            <span id="timer"></span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -43,33 +45,38 @@
             <!-- <img class="card-img-top" src="holder.js/100x180/" alt=""> -->
             <div class="card-body">
                 <h4 id="question-title" class="card-title">Question</h4>
-                <button type="button" name="" id="choice0" class="card-text btn btn-secondary btn-lg btn-block">Choice 1</button>
-                <button type="button" name="" id="choice1" class="card-text btn btn-secondary btn-lg btn-block">Choice 2</button>
-                <button type="button" name="" id="choice2" class="card-text btn btn-secondary btn-lg btn-block">Choice 3</button>
-                <button type="button" name="" id="choice3" class="card-text btn btn-secondary btn-lg btn-block">Choice 4</button>
+                <button type="button" name="" id="choice0" class="choices card-text btn btn-secondary btn-lg btn-block">Choice 1</button>
+                <button type="button" name="" id="choice1" class="choices card-text btn btn-secondary btn-lg btn-block">Choice 2</button>
+                <button type="button" name="" id="choice2" class="choices card-text btn btn-secondary btn-lg btn-block">Choice 3</button>
+                <button type="button" name="" id="choice3" class="choices card-text btn btn-secondary btn-lg btn-block">Choice 4</button>
             </div>
         </div>
         <div id="result-card" class="card text-center" style="background-color:cadetblue; border-color:darkblue;">
             <!-- <img class="card-img-top" src="holder.js/100x180/" alt=""> -->
             <div class="card-body">
                 <h4 id="result-title" class="card-title">Nope!</h4>
-                <p class="card-text">The Correct Answer was: <span id="correct-answer"></span></p>
-                <!-- <img src="holder.js/100x180/" class="img-fluid rounded-circle" alt=""> -->
+                <p class="card-text" id="result-text">The Correct Answer was:
+                    <span id="correct-answer"></span>
+                </p>
+                <img id="result-random-image" src="" class="img-fluid rounded-circle" alt="image-placeholder">
             </div>
         </div>
         <div id="score-card" class="card" style="background-color:cadetblue; border-color:darkblue;">
             <!-- <img class="card-img-top" src="holder.js/100x180/" alt=""> -->
             <div class="card-body text-center">
                 <h4 class="card-title">All done, here is how you did!</h4>
-                <p class="card-text">Correct Answers: <span id="correct-total" ></span> </p>
-                <p class="card-text">Incorrect Answers: <span id="incorrect-total"></span></p>
-                <p class="card-text">Unanswered: <span id="unanswered-total" ></span></p>
-                <button type="button" name="restart-button-name" id="restart-button-id" class="btn btn-primary justify-content-md-center">Start Again?</button>
+                <p class="card-text">Correct Answers:
+                    <span id="correct-total"></span>
+                </p>
+                <p class="card-text">Incorrect Answers:
+                    <span id="incorrect-total"></span>
+                </p>
+                <p class="card-text">Unanswered:
+                    <span id="unanswered-total"></span>
+                </p>
+                <!-- <button type="button" name="restart-button-name" id="restart-button-id" class="btn btn-primary justify-content-md-center">Start Again?</button> -->
             </div>
         </div>
-        <!-- <button type="button" class="btn btn-secondary" data-toggle="popover" title="Popup title" data-content="Popup content" data-trigger="focus">
-            Something
-        </button> -->
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -83,4 +90,3 @@
 </body>
 
 </html>
-
