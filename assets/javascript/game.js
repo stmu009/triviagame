@@ -16,7 +16,7 @@ var game = {
   },
   imageURL: "",
   getRandomImage: function() {
-    console.log('getting random image.....');
+    console.log("getting random image.....");
     imageApiUrl =
       "https://api.giphy.com/v1/gifs/random?api_key=9QlbLuAZPRqqt9iFUGsCDEohAG6hNb6B&tag=video%20game&rating=PG";
     $.ajax({
@@ -169,8 +169,10 @@ var game = {
   },
   wrongAnswerResult: function() {
     $("#result-title").text("Incorrect");
-    $("#correct-answer").html(
-      game.questions[game.currentQuestion].correct_answer
+    $(".card-text").html(
+      '<p class="card-text">The Correct Answer was: <span id="correct-answer">' +
+        game.questions[game.currentQuestion].correct_answer +
+        "</span></p>"
     );
     game.getRandomImage();
     game.currentQuestion++;
@@ -185,8 +187,10 @@ var game = {
   },
   outOfTimeResult: function() {
     $("#result-title").text("You are out of time!");
-    $("#correct-answer").html(
-      game.questions[game.currentQuestion].correct_answer
+    $(".card-text").html(
+      '<p class="card-text">The Correct Answer was: <span id="correct-answer">' +
+        game.questions[game.currentQuestion].correct_answer +
+        "</span></p>"
     );
     game.getRandomImage();
     game.currentQuestion++;
